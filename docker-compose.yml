@@ -1,0 +1,34 @@
+version: "3"
+services:
+    simplisales-assignment-dev:
+        container_name: simplisales-assignment
+        build:
+            context: .
+            dockerfile: tools/docker/Dockerfile.dev
+        image: simplisales-assignment
+        volumes:
+            - ./logs:/app/react/logs
+        ports:
+            - "5000:5000"
+    simplisales-assignment-staging:
+        container_name: simplisales-assignment
+        build:
+            context: .
+            dockerfile: tools/docker/Dockerfile.staging
+        image: simplisales-assignment
+        volumes:
+            - ./logs:/app/react/logs
+        ports:
+            - "5000:5000"
+        restart: always
+    simplisales-assignment-prod:
+        container_name: simplisales-assignment
+        build:
+            context: .
+            dockerfile: tools/docker/Dockerfile.prod
+        image: simplisales-assignment
+        volumes:
+            - ./logs:/app/react/logs
+        ports:
+            - "5000:5000"
+        restart: always
