@@ -17,6 +17,9 @@ export default defineConfig(({ command, mode }) => {
         resolve: {
             alias: {},
         },
+        build: {
+            outDir: path.join("..", "dist"),
+        },
         server: {
             fs: {
                 strict: true,
