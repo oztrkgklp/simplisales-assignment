@@ -1,31 +1,6 @@
-export default (delivery) => `
-query request{
-    restaurant (delivery: ${delivery}){
-      address {
-        addressLine1
-        addressLine2
-        city {
-          id
-          name
-          slugName
-          timezone
-        }
-        country {
-          id
-          isoCode
-          name
-          slugName
-        }
-        flatNumber
-        geoEnabled
-        id
-        lat
-        lon
-        postalCode
-        slugAdminWard
-      }
+export default (delivery, index, limit) => `
+  restaurants(delivery: ${delivery}, index: ${index}, limit: ${limit}) {
       avgScore
-      contactMobileNumber
       deal {
         delivery
         id
@@ -50,104 +25,12 @@ query request{
         tagName
       }
       inDistance
-      info
-      instagramUsername
-      isClosingSoon
-      isFavorite
       isNew
-      items {
-        description
-        disabledUntil
-        enabled
-        freebie {
-          id
-          minSpendAmount
-        }
-        id
-        menus {
-          id
-          index
-          restaurantMenuId
-        }
-        name
-        newAmount
-        noteAble
-        oldAmount
-        options {
-          enabled
-          id
-          minRequired
-          multipleSelection
-          name
-          required
-          
-        }
-        pictures {
-          alt
-          bundle
-          height
-          id
-          title
-          url
-          width
-        }
-        preparationTime
-        quantityAble
-        types {
-          id
-          name
-        }
-      }
-      menus {
-        description
-        id
-        inRestaurantTimeFrameMap
-        index
-        name
-      }
       minOrderAmount
       minOrderEnabled
       name
-      nextOpeningDate
       open
-      openingHours {
-        fri {
-          end_time
-          open
-          start_time
-        }
-        mon {
-          end_time
-          open
-          start_time
-        }
-        sat {
-          end_time
-          open
-          start_time
-        }
-        sun {
-          end_time
-          open
-          start_time
-        }
-        thu {
-          end_time
-          open
-          start_time
-        }
-        tue {
-          end_time
-          open
-          start_time
-        }
-        wed {
-          end_time
-          open
-          start_time
-        }
-      }
-      pictures {
+      picture {
         alt
         bundle
         height
@@ -157,10 +40,14 @@ query request{
         width
       }
       reOpenDate
+      restaurantAddressPostalCode
+      restaurantAddressSlugAdminWard
+      restaurantAddressSlugCityName
       restaurantCollectionWorkingTimeStatus
       restaurantDeliveryDriverStatus
       restaurantDeliveryStatus
       restaurantDeliveryWorkingTimeStatus
+      restaurantItemId
       restaurantNextVacationEndDate
       restaurantNextVacationStartDate
       restaurantNextVacationStatus
@@ -168,19 +55,13 @@ query request{
       restaurantStatusCode
       restaurantStatusParams
       restaurantWorkingHourOpenTime
-      reviewCount
-      showWorkingHours
       slugName
-      timeFrames {
-        id
-        name
-      }
       types {
         iconId
         id
         name
       }
       uid
-    }
+    } 
   }
 `;

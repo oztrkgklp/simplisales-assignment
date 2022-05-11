@@ -1,10 +1,8 @@
-import TestService from "./TestService";
 import GraphQLService from "./GraphQLService";
 
-const testService = new TestService();
+/** initialize services */
 const graphQLService = new GraphQLService();
 
 export {
     graphQLService,
-    testService,
 }

@@ -12,56 +12,86 @@ export default class {
     login = async (email, password) => {
         return axios
             .post(constants.API, {
-                data: {
-                    query: queries.login(email, password),
-                },
+                query: queries.login(email, password),
             })
             .then((response) => {
-                if (data.loginWithEmail) cookie.save(constants.AUTHORIZATION, "Bearer " + response.data.loginWithEmail.token);
-                else throw errors.AUTHENTICATION_FAILED;
+                if (response.data.loginWithEmail) cookie.save(constants.AUTHORIZATION, "Bearer " + response.data.loginWithEmail.token);
+                else return Promise.reject(errors.AUTHENTICATION_FAILED);
             })
-            .catch((e) => e.message);
     };
 
     getPastOrders = async (index, limit) => {
         return axios
             .post(constants.API, {
-                data: {
-                    query: queries.getPastOrders(index, limit),
-                },
+                query: queries.getPastOrders(index, limit),
+            }, {
+                headers: {
+                    [constants.AUTHORIZATION]: cookie.load(constants.AUTHORIZATION)
+                }
             })
             .then((response) => {
-                if (data.pastOrders) return data.pastOrders;
-                else throw errors.UNKNOWN_ERROR;
+                if (response.data.pastOrders) return response.data.pastOrders;
+                else return Promise.reject(errors.UNKNOWN_ERROR);
             })
-            .catch((e) => e.message);
+    };
+
+    getOrder = async (id) => {
+        return axios
+            .post(constants.API, {
+                query: queries.getOrder(id),
+            }, {
+                headers: {
+                    [constants.AUTHORIZATION]: cookie.load(constants.AUTHORIZATION)
+                }
+            })
+            .then((response) => {
+                if (response.data.order) return response.data.order;
+                else return Promise.reject(errors.UNKNOWN_ERROR);
+            })
     };
 
     getUserInfo = async () => {
         return axios
             .post(constants.API, {
-                data: {
-                    query: queries.getUserInfo(),
-                },
+                query: queries.getUserInfo(),
+            }, {
+                headers: {
+                    [constants.AUTHORIZATION]: cookie.load(constants.AUTHORIZATION)
+                }
             })
             .then((response) => {
-                if (data.user) return data.user;
-                else throw errors.UNKNOWN_ERROR;
+                if (response.data.user) return response.data.user;
+                else return Promise.reject(errors.UNKNOWN_ERROR);
             })
-            .catch((e) => e.message);
-    }
+    };
 
-    getRestaurants = async (delivery) => {
+    getRestaurants = async (delivery, index, limit) => {
         return axios
             .post(constants.API, {
-                data: {
-                    query: queries.getRestaurants(delivery),
-                },
+                query: queries.getRestaurants(delivery, index, limit),
+            }, {
+                headers: {
+                    [constants.AUTHORIZATION]: cookie.load(constants.AUTHORIZATION)
+                }
             })
             .then((response) => {
-                if (data.restaurant) return data.restaurant;
-                else throw errors.UNKNOWN_ERROR;
+                if (response.data.restaurants) return response.data.restaurants;
+                else return Promise.reject(errors.UNKNOWN_ERROR);
             })
-            .catch((e) => e.message);
-    }
+    };
+
+    getRestaurant = async (delivery) => {
+        return axios
+            .post(constants.API, {
+                query: queries.getRestaurant(delivery),
+            }, {
+                headers: {
+                    [constants.AUTHORIZATION]: cookie.load(constants.AUTHORIZATION)
+                }
+            })
+            .then((response) => {
+                if (response.data.restaurant) return response.data.restaurant;
+                else return Promise.reject(errors.UNKNOWN_ERROR);
+            })
+    };
 }

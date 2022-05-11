@@ -3,7 +3,11 @@ import reducers from "./../slices";
 
 // Combine reducers and combine them into a single reducer.
 const reducer = combineReducers({
-    test: reducers.test.reducer,
+    restaurants: reducers.restaurants.reducer,
+    restaurant: reducers.restaurant.reducer,
+    isSignedIn: reducers.isSignedIn.reducer,
+    user: reducers.user.reducer,
+    pastOrders: reducers.pastOrders.reducer,
 });
 
 export default reducer;
