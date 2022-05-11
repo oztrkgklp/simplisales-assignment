@@ -7,15 +7,21 @@ import routes from ".";
 import Header from "/components/common/Header";
 import Footer from "/components/common/Footer";
 
-/** Components */
+/** Pages */
 import Home from "/components/pages/Home";
 import Login from "/components/pages/Login";
+import Profile from "/components/pages/Profile";
+import Orders from "/components/pages/Orders";
+import Restaurants from "/components/pages/Restaurants";
 
 const RouteList = () => {
     const isSignedIn = useSelector((state) => state.isSignedIn.value);
     let routes_ = useRoutes([
         /** Routes */
         { path: routes.Home, element: !isSignedIn ? <Login /> : <Home /> },
+        { path: routes.Profile, element: !isSignedIn ? <Login /> : <Profile /> },
+        { path: routes.Orders, element: !isSignedIn ? <Login /> : <Orders /> },
+        { path: routes.Restaurants, element: !isSignedIn ? <Login /> : <Restaurants /> },
         { path: routes.Login, element: <Login /> },
     ]);
 

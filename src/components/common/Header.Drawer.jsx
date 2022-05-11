@@ -11,16 +11,34 @@ import Divider from "@mui/material/Divider";
 import Toolbar from "@mui/material/Toolbar";
 import { Typography } from "@material-ui/core";
 import { Logout } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import reducers from "/redux/slices";
+import routes from "/routes";
 
 const Drawer = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
     return (
         <div className="drawer-container">
-            <Toolbar sx={{ backgroundColor: "#365379", borderRadius: "3px" }}>
+            <Toolbar
+                sx={{ backgroundColor: "#365379", borderRadius: "3px", cursor: "pointer" }}
+                onClick={() => {
+                    navigate(routes.Home);
+                }}
+            >
                 <Typography className="drawer-logo">Simplisales</Typography>
             </Toolbar>
             <Divider />
             <List>
-                <ListItem key="Profile">
+                <ListItem
+                    key="Profile"
+                    onClick={() => {
+                        dispatch(reducers.user.getUser());
+                        navigate(routes.Profile);
+                    }}
+                >
                     <ListItemButton>
                         <ListItemIcon>
                             <AccountCircleIcon className="drawer-icons" />
@@ -31,15 +49,13 @@ const Drawer = () => {
             </List>
             <Divider />
             <List>
-                <ListItem key="My Orders">
-                    <ListItemButton>
-                        <ListItemIcon>
-                            <ShoppingBasketIcon className="drawer-icons" />
-                        </ListItemIcon>
-                        <ListItemText primary="My Orders" />
-                    </ListItemButton>
-                </ListItem>
-                <ListItem key="Restaurants">
+                <ListItem
+                    key="Restaurants"
+                    onClick={() => {
+                        dispatch(reducers.restaurants.getRestaurants({ delivery: false, index: 0, limit: 10 }));
+                        navigate(routes.Restaurants);
+                    }}
+                >
                     <ListItemButton>
                         <ListItemIcon>
                             <FastfoodIcon className="drawer-icons" />
@@ -47,15 +63,35 @@ const Drawer = () => {
                         <ListItemText primary="Restaurants" />
                     </ListItemButton>
                 </ListItem>
-                <div className="drawer-footer">
-                <ListItem key="Logout">
+                <ListItem
+                    key="My Orders"
+                    onClick={() => {
+                        dispatch(reducers.pastOrders.getPastOrders({ index: 0, limit: 10 }));
+                        navigate(routes.Orders);
+                    }}
+                >
                     <ListItemButton>
                         <ListItemIcon>
-                            <Logout className="logout-icon" />
+                            <ShoppingBasketIcon className="drawer-icons" />
                         </ListItemIcon>
-                        <ListItemText primary="Logout" />
+                        <ListItemText primary="My Orders" />
                     </ListItemButton>
                 </ListItem>
+                <div className="drawer-footer">
+                    <ListItem
+                        key="Logout"
+                        onClick={() => {
+                            dispatch(reducers.isSignedIn.setIsSignedIn(false));
+                            navigate(routes.Login);
+                        }}
+                    >
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <Logout className="logout-icon" />
+                            </ListItemIcon>
+                            <ListItemText style={{ textDecoration: "none !important", color: "red" }} primary="Logout" />
+                        </ListItemButton>
+                    </ListItem>
                     <p>&copy; 2022 Gökalp Öztürk</p>
                 </div>
             </List>

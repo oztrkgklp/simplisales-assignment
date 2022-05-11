@@ -32,7 +32,8 @@
 .drawer-footer {
     margin-top: 55vh;
     .logout-icon{
-        color: red;
+        color: red !important;
+        text-decoration: none !important;
     }
     color: red;
     p{
