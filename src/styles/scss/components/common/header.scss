@@ -22,8 +22,23 @@
 
 .drawer-logo {
     color: #d3d2df;
+    margin-left: 25% !important;
     font-size: x-large !important;
     font-style: oblique;
     font-stretch: expanded;
     font-family: cursive;
+}
+
+.drawer-footer {
+    margin-top: 55vh;
+    .logout-icon{
+        color: red;
+    }
+    color: red;
+    p{
+        margin-top: 20px;
+        margin-left: 25%;
+        color: rgba($color: #fff, $alpha: 0.5);
+        font-size: small;
+    }
 }

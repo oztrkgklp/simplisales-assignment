@@ -7,7 +7,6 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import ResponsiveDrawer from "./Header.Drawer";
-import Account from "./Header.Account";
 
 const drawerWidth = 240;
 
@@ -23,6 +22,7 @@ const Header = (props) => {
 
     return (
         <Box sx={{ display: "flex" }}>
+            {/* <Account /> */}
             <CssBaseline />
             <AppBar
                 position="fixed"
@@ -37,7 +37,6 @@ const Header = (props) => {
                         <MenuIcon className="drawer-icons" />
                     </IconButton>
                 </Toolbar>
-                <Account />
             </AppBar>
             <Box component="nav" sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }} aria-label="mailbox folders">
                 <Drawer
