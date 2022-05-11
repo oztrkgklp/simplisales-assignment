@@ -44,6 +44,7 @@ dist
 # Dependency directories
 node_modules/
 jspm_packages/
+*-lock.json
 
 # TypeScript v1 declaration files
 typings/
