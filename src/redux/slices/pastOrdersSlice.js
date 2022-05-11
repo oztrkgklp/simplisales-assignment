@@ -4,7 +4,9 @@ import { graphQLService } from "/services";
 //#region Slice
 const { actions, reducer } = createSlice({
     name: "PastOrders",
-    initialState: [],
+    initialState: {
+        value: [],
+    },
     reducers: {
         setPastOrders: (state, action) => {
             state.value = action.payload;
@@ -13,7 +15,6 @@ const { actions, reducer } = createSlice({
     extraReducers: (builder) => {
         builder.addCase(getPastOrders.fulfilled, (state, action) => {});
         builder.addCase(getPastOrders.rejected, (state, action) => {});
-
     },
 });
 //#endregion Slice

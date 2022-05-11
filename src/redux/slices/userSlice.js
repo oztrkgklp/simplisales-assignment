@@ -4,7 +4,9 @@ import { graphQLService } from "/services";
 //#region Slice
 const { actions, reducer } = createSlice({
     name: "User",
-    initialState: {},
+    initialState: {
+        value: {},
+    },
     reducers: {
         setUser: (state, action) => {
             state.value = action.payload;
@@ -13,7 +15,6 @@ const { actions, reducer } = createSlice({
     extraReducers: (builder) => {
         builder.addCase(getUser.fulfilled, (state, action) => {});
         builder.addCase(getUser.rejected, (state, action) => {});
-
     },
 });
 //#endregion Slice

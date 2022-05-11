@@ -15,7 +15,10 @@ export default class {
                 query: queries.login(email, password),
             })
             .then((response) => {
-                if (response.data.loginWithEmail) cookie.save(constants.AUTHORIZATION, "Bearer " + response.data.loginWithEmail.token);
+                if (response.data.loginWithEmail !== null) {
+                    const token = response.data.data.loginWithEmail.token;
+                    cookie.save(constants.AUTHORIZATION, "Bearer " + token);
+                } 
                 else return Promise.reject(errors.AUTHENTICATION_FAILED);
             })
     };
@@ -30,7 +33,7 @@ export default class {
                 }
             })
             .then((response) => {
-                if (response.data.pastOrders) return response.data.pastOrders;
+                if (response.data.data.pastOrders) return response.data.data.pastOrders;
                 else return Promise.reject(errors.UNKNOWN_ERROR);
             })
     };
@@ -45,7 +48,7 @@ export default class {
                 }
             })
             .then((response) => {
-                if (response.data.order) return response.data.order;
+                if (response.data.data.order) return response.data.data.order;
                 else return Promise.reject(errors.UNKNOWN_ERROR);
             })
     };
@@ -60,7 +63,7 @@ export default class {
                 }
             })
             .then((response) => {
-                if (response.data.user) return response.data.user;
+                if (response.data.data.user) return response.data.data.user;
                 else return Promise.reject(errors.UNKNOWN_ERROR);
             })
     };
@@ -75,7 +78,7 @@ export default class {
                 }
             })
             .then((response) => {
-                if (response.data.restaurants) return response.data.restaurants;
+                if (response.data.data.restaurants) return response.data.data.restaurants;
                 else return Promise.reject(errors.UNKNOWN_ERROR);
             })
     };
@@ -90,7 +93,7 @@ export default class {
                 }
             })
             .then((response) => {
-                if (response.data.restaurant) return response.data.restaurant;
+                if (response.data.data.restaurant) return response.data.data.restaurant;
                 else return Promise.reject(errors.UNKNOWN_ERROR);
             })
     };

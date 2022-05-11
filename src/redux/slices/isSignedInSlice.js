@@ -1,9 +1,11 @@
-import { createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 //#region Slice
 const { actions, reducer } = createSlice({
     name: "IsSignedIn",
-    initialState: false,
+    initialState: {
+        value: false,
+    },
     reducers: {
         setIsSignedIn: (state, action) => {
             state.value = action.payload;
