@@ -1,14 +1,10 @@
 .app-bar {
+    position: absolute;
     background-color: #365885;
 }
 
-.app-bar-icon {
-    position: absolute;
-    top: 20px;
-    right: 3%;
-}
-
 .drawer-container {
+    overflow: hidden;
     color: #d3d2df;
 }
 

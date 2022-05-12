@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useState } from "react";
+import RestaurantCardList from "../Restaurant.Card.List";
+import RestaurantDetail from "../Restaurant.Detail";
 
 const Restaurants = () => {
-  return (
-    <div>Restaurants</div>
-  )
-}
+    const [open, setOpen] = useState(false);
 
-export default Restaurants
+    return (
+        <div className="page">
+            <RestaurantCardList setOpen={setOpen} />
+            <RestaurantDetail open={open} setOpen={setOpen} />
+        </div>
+    );
+};
+
+export default Restaurants;

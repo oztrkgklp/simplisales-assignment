@@ -1,0 +1,102 @@
+.restaurant-card-list-container {
+    width: 75vw;
+    min-height: 85vh;
+    overflow: visible !important;
+    background-color: rgba(141, 212, 238, 0.55);
+    border-radius: 5px;
+    overflow: hidden;
+    overflow-y: scroll;
+    margin-top: 2vh;
+    display: absolute;
+    .restaurant-list {
+        margin-inline: 10px;
+    }
+    .pagination {
+        display: relative;
+        margin-left: 30vw;
+        margin-top: 4vh;
+    }
+}
+
+.restaurant-card {
+    .card-header {
+        height: 50px;
+        background-color: rgb(57, 116, 165);
+        color: #d3d2df;
+    }
+}
+
+.restaurant-detail-dialog {
+    margin-left: 2vw;
+    margin-right: 0.5vw;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    height: 70vh;
+    overflow: hidden;
+    .is-new {
+        .icon {
+            font-size: xx-large !important;
+            margin-right: 10px !important;
+            animation: icon 0.7s infinite;
+        }
+        display: flex;
+        align-items: center;
+    }
+    .dialog-close-icon {
+        position: absolute;
+        right: 16%;
+        color: #d3d2df;
+        &:hover {
+            color:red;
+        } 
+    }
+    .dialog-info {
+        height: 100% !important;
+        img {
+            border-radius: 6px;
+            max-height: 250px;
+            width: 90%;
+        }
+
+        .info {
+            margin-top: 10px;
+            width: 90%;
+            background-color: #365885;
+            border-radius: 5px;
+            .entry {
+                margin-top: 10px;
+                text-align: center;
+                margin-inline: 10% !important;
+
+                .keys {
+                    color: rgba($color: rgb(133, 214, 197), $alpha: 1);
+                    font-size: larger;
+                }
+                .values {
+                    font-size: large;
+                    color: rgba($color: rgb(176, 240, 168), $alpha: 1);
+                }
+            }
+        }
+    }
+
+    .detail-is-open {
+        background-color: #bdd2ec;
+        width: 50%;
+        margin-left: 20%;
+        border-radius: 5px;
+    }
+}
+
+.restaurant-dialog {
+    background-color: #365885 !important;
+}
+
+@keyframes icon {
+    0% {
+        color: white;
+    }
+    100% {
+        color: rgb(4, 241, 4);
+    }
+}

@@ -1,0 +1,40 @@
+
+.card-description {
+    height: 25px !important;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.open {
+    color: green;
+    @extend .card-description;
+}
+
+.closed {
+    color: red;
+    @extend .card-description;
+}   
+
+.is-open {
+    display: flex;
+    align-items: center;
+    p {
+        margin-left: 5px !important;
+    }
+}
+
+.new-icon {
+    color: white;
+    font-size: xx-large !important;
+    animation: icon 0.7s infinite;
+}
+
+@keyframes icon {
+    0% {
+        color: white;
+    }
+    100% {
+        color: rgb(4, 241, 4);
+    }
+}

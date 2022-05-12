@@ -14,8 +14,8 @@ export default {
     },
     restaurant: {
         reducer: restaurantReducer,
-        getRestaurants: getRestaurant,
-        setRestaurants: restaurantActions.setRestaurants,
+        getRestaurant: getRestaurant,
+        setRestaurant: restaurantActions.setRestaurant,
     },
     isSignedIn: {
         reducer: isSignedInReducer,

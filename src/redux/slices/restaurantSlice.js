@@ -5,7 +5,21 @@ import { graphQLService } from "/services";
 const { actions, reducer } = createSlice({
     name: "Restaurant",
     initialState: {
-        value: {},
+        value: {
+            picture: {
+                url: "",
+            },
+            name: "",
+            restaurantAddressSlugCityName: "",
+            isNew: false,
+            open: false,
+            types: [],
+            distance: 0.0,
+            minOrderAmount: 0,
+            delivery: false,
+            avgScore: 0,
+            restaurantAddressPostalCode: "",
+        },
     },
     reducers: {
         setRestaurant: (state, action) => {
