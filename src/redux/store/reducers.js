@@ -8,6 +8,7 @@ const reducer = combineReducers({
     isSignedIn: reducers.isSignedIn.reducer,
     user: reducers.user.reducer,
     pastOrders: reducers.pastOrders.reducer,
+    order: reducers.order.reducer,
 });
 
 export default reducer;

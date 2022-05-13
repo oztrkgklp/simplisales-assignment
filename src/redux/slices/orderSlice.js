@@ -5,7 +5,53 @@ import { graphQLService } from "/services";
 const { actions, reducer } = createSlice({
     name: "Orders",
     initialState: {
-        value: {},
+        value: {
+            uid: "0",
+            address: {
+                addressLine1: "",
+                addressLine2: "",
+                city: {
+                    name: "",
+                },
+                country: {
+                    name: "",
+                },
+                fullName: "",
+                flatNumber: "",
+            },
+            restaurant: {
+                name: "",
+                contactMobileNumber: "",
+            },
+            total: 0.0,
+            orderDate: "",
+            earnedPoints: 0,
+            deliveryFee: 0.0,
+            items: [
+                {
+                    amount: 0.0,
+                    totalAmount: 0.0,
+                    quantity: 0,
+                    name: "",
+                    description: "",
+                    options: [
+                        {
+                            multipleSelection: 0,
+                            name: "",
+                            values: [
+                                {
+                                    amount: 0,
+                                    name: "",
+                                    quantity: 0,
+                                    quantityAble: 0,
+                                },
+                            ],
+                        },
+                    ],
+                },
+            ],
+            deliveryTime: 0,
+        },
     },
     reducers: {
         setOrder: (state, action) => {

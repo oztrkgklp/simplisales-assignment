@@ -1,20 +1,31 @@
 .order-card-list-container {
     width: 75vw;
     min-height: 85vh;
+    height: 85vh;
     overflow: visible !important;
     background-color: rgba(141, 212, 238, 0.55);
     border-radius: 5px;
     overflow: hidden;
     overflow-y: scroll;
     margin-top: 2vh;
+    align-items: center;
     display: absolute;
-    .order-list {
-        margin-inline: 10px;
+    .card-header {
+        margin-bottom: 20px;
     }
-    .pagination {
-        display: relative;
-        margin-left: 30vw;
-        margin-top: 4vh;
+    .data-grid-container {
+        height: 56vh;
+        width: 90%;
+        margin-inline: 5%;
+        .card {
+            height: 100%;
+            width: 100%;
+            background-color: #365885;
+            border-radius: 3px;
+            .grid {
+                color: #d3d2df !important;
+            }
+        }
     }
 }
 
@@ -31,9 +42,16 @@
     margin-right: 0.5vw;
     margin-top: 1vh;
     margin-bottom: 1vh;
+    min-width: 20vw;
     height: 70vh;
     overflow: hidden;
-    .is-new {
+    .title {
+        margin-right: 1%;
+        .text {
+            color: rgb(197, 170, 170);
+            font-size: larger;
+            margin-top: 20px;
+        }
         .icon {
             font-size: xx-large !important;
             margin-right: 10px !important;
@@ -47,8 +65,8 @@
         right: 16%;
         color: #d3d2df;
         &:hover {
-            color:red;
-        } 
+            color: red;
+        }
     }
     .dialog-info {
         height: 100% !important;

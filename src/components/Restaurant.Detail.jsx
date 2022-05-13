@@ -13,7 +13,7 @@ import CheckIcon from "@mui/icons-material/Check";
 import CloseIcon from "@mui/icons-material/Close";
 import FiberNewIcon from "@mui/icons-material/FiberNew";
 
-export default function ResponsiveDialog({ open, setOpen }) {
+const OrderDetail = ({ open, setOpen }) => {
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -117,7 +117,7 @@ export default function ResponsiveDialog({ open, setOpen }) {
                                             <div className="keys">Delivery</div>
                                         </Grid>
                                         <Grid xs={6} md={6} lg={6} xl={6}>
-                                            <div className="values">{restaurant.delivery ? <CheckIcon/> : <CloseIcon />}</div>
+                                            <div className="values">{restaurant.delivery ? <CheckIcon /> : <CloseIcon />}</div>
                                         </Grid>
                                     </Grid>
                                 </div>
@@ -151,4 +151,6 @@ export default function ResponsiveDialog({ open, setOpen }) {
             </Dialog>
         </div>
     );
-}
+};
+
+export default OrderDetail;
