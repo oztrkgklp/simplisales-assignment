@@ -22,6 +22,18 @@ const { actions, reducer } = createSlice({
             restaurant: {
                 name: "",
                 contactMobileNumber: "",
+                address: {
+                    addressLine1: "",
+                    addressLine2: "",
+                    city: {
+                        name: "",
+                    },
+                    country: {
+                        name: "",
+                    },
+                    fullName: "",
+                    flatNumber: "",
+                },
             },
             total: 0.0,
             orderDate: "",

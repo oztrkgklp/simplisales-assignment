@@ -7,192 +7,10 @@ import { ShoppingBagOutlined } from "@mui/icons-material";
 
 const OrderDataGrid = ({ setOpen }) => {
     const dispatch = useDispatch();
-    // const orders = useSelector((state) => state.pastOrders.value);
-    const orders = [
-        {
-            uid: "sfasfas",
-            address: {
-                addressLine1: "Lillieshall Road, London",
-                addressLine2: "",
-                city: {
-                    name: "London",
-                },
-                country: {
-                    name: "England",
-                },
-                fullName: "Ahmet Dogan",
-                flatNumber: "13",
-            },
-            restaurant: {
-                name: "Coocina Burgers",
-                contactMobileNumber: "+442034892525",
-            },
-            total: 24.95,
-            orderDate: "2019-02-15T16:58:29Z",
-            earnedPoints: 4900,
-            deliveryFee: 2.5,
-            items: [
-                {
-                    amount: 10.49,
-                    totalAmount: 21.98,
-                    quantity: 2,
-                    name: "Pink Chargrilled Burger",
-                    description:
-                        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione perferendis dignissimos error fuga, sed itaque ea, ipsam sunt saepe sapiente quod provident iure autem tempora? Deleniti officiis ea veniam nobis.",
-                    options: [
-                        {
-                            multipleSelection: 1,
-                            name: "Select Bun",
-                            values: [
-                                {
-                                    amount: 0,
-                                    name: "Pink Chargrilled Burger",
-                                    quantity: 1,
-                                    quantityAble: 1,
-                                },
-                            ],
-                        },
-                        {
-                            multipleSelection: 1,
-                            name: "Add Ons",
-                            values: [
-                                {
-                                    amount: 0,
-                                    name: "Potato Wedges",
-                                    quantity: 1,
-                                    quantityAble: 1,
-                                },
-                            ],
-                        },
-                    ],
-                },
-            ],
-            deliveryTime: 45,
-        },
-        {
-            uid: "sfasfas",
-            address: {
-                addressLine1: "Lillieshall Road, London",
-                addressLine2: "",
-                city: {
-                    name: "London",
-                },
-                country: {
-                    name: "England",
-                },
-                fullName: "Ahmet Dogan",
-                flatNumber: "13",
-            },
-            restaurant: {
-                name: "Coocina Burgers",
-                contactMobileNumber: "+442034892525",
-            },
-            total: 24.95,
-            orderDate: "2019-02-15T16:58:29Z",
-            earnedPoints: 4900,
-            deliveryFee: 2.5,
-            items: [
-                {
-                    amount: 10.49,
-                    totalAmount: 21.98,
-                    quantity: 2,
-                    name: "Pink Chargrilled Burger",
-                    description:
-                        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione perferendis dignissimos error fuga, sed itaque ea, ipsam sunt saepe sapiente quod provident iure autem tempora? Deleniti officiis ea veniam nobis.",
-                    options: [
-                        {
-                            multipleSelection: 1,
-                            name: "Select Bun",
-                            values: [
-                                {
-                                    amount: 0,
-                                    name: "Pink Chargrilled Burger",
-                                    quantity: 1,
-                                    quantityAble: 1,
-                                },
-                            ],
-                        },
-                        {
-                            multipleSelection: 1,
-                            name: "Add Ons",
-                            values: [
-                                {
-                                    amount: 0,
-                                    name: "Potato Wedges",
-                                    quantity: 1,
-                                    quantityAble: 1,
-                                },
-                            ],
-                        },
-                    ],
-                },
-            ],
-            deliveryTime: 45,
-        },
-        {
-            uid: "sfasfas",
-            address: {
-                addressLine1: "Lillieshall Road, London",
-                addressLine2: "",
-                city: {
-                    name: "London",
-                },
-                country: {
-                    name: "England",
-                },
-                fullName: "Ahmet Dogan",
-                flatNumber: "13",
-            },
-            restaurant: {
-                name: "Coocina Burgers",
-                contactMobileNumber: "+442034892525",
-            },
-            total: 24.95,
-            orderDate: "2019-02-15T16:58:29Z",
-            earnedPoints: 4900,
-            deliveryFee: 2.5,
-            items: [
-                {
-                    amount: 10.49,
-                    totalAmount: 21.98,
-                    quantity: 2,
-                    name: "Pink Chargrilled Burger",
-                    description:
-                        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione perferendis dignissimos error fuga, sed itaque ea, ipsam sunt saepe sapiente quod provident iure autem tempora? Deleniti officiis ea veniam nobis.",
-                    options: [
-                        {
-                            multipleSelection: 1,
-                            name: "Select Bun",
-                            values: [
-                                {
-                                    amount: 0,
-                                    name: "Pink Chargrilled Burger",
-                                    quantity: 1,
-                                    quantityAble: 1,
-                                },
-                            ],
-                        },
-                        {
-                            multipleSelection: 1,
-                            name: "Add Ons",
-                            values: [
-                                {
-                                    amount: 0,
-                                    name: "Potato Wedges",
-                                    quantity: 1,
-                                    quantityAble: 1,
-                                },
-                            ],
-                        },
-                    ],
-                },
-            ],
-            deliveryTime: 45,
-        },
-    ];
+    const orders = useSelector((state) => state.pastOrders.value);
 
     const [index, setIndex] = useState(0);
-    const [limit, setLimit] = useState(5);
+    const [limit, setLimit] = useState(50);
 
     const generateAddress = (order) => {
         const { addressLine1, addressLine2, city, country, flatNumber } = order.address;
@@ -200,7 +18,7 @@ const OrderDataGrid = ({ setOpen }) => {
     };
 
     useEffect(() => {
-        // dispatch(reducers.pastOrders.setPastOrders({ index, limit }));
+        dispatch(reducers.pastOrders.getPastOrders({ index, limit }));
     }, []);
 
     const columns = [
@@ -305,7 +123,7 @@ const OrderDataGrid = ({ setOpen }) => {
                         <DataGrid
                             onCellClick={(cell, event) => {
                                 dispatch(reducers.order.setOrder(orders.filter((order) => order.uid === cell.row.uid)[0]));
-                                setOpen(true)
+                                setOpen(true);
                             }}
                             rows={rows}
                             columns={columns}

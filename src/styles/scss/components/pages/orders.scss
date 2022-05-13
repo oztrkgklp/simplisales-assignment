@@ -1,7 +1,6 @@
 .order-card-list-container {
     width: 75vw;
-    min-height: 85vh;
-    height: 85vh;
+    height: 60vh;
     overflow: visible !important;
     background-color: rgba(141, 212, 238, 0.55);
     border-radius: 5px;
@@ -14,7 +13,7 @@
         margin-bottom: 20px;
     }
     .data-grid-container {
-        height: 56vh;
+        height: 41vh;
         width: 90%;
         margin-inline: 5%;
         .card {
@@ -38,19 +37,20 @@
 }
 
 .order-detail-dialog {
-    margin-left: 2vw;
-    margin-right: 0.5vw;
-    margin-top: 1vh;
     margin-bottom: 1vh;
     min-width: 20vw;
-    height: 70vh;
+    margin-left: 0.3%;
+    width: 90%;
+    overflow-x: hidden;
+    height: 80%;
     overflow: hidden;
     .title {
         margin-right: 1%;
         .text {
             color: rgb(197, 170, 170);
             font-size: larger;
-            margin-top: 20px;
+            margin-top: 50px;
+            position: absolute;
         }
         .icon {
             font-size: xx-large !important;
@@ -62,7 +62,7 @@
     }
     .dialog-close-icon {
         position: absolute;
-        right: 16%;
+        right: 15%;
         color: #d3d2df;
         &:hover {
             color: red;
@@ -73,7 +73,7 @@
         .dialog-card {
             margin-top: 10px;
             text-align: center;
-            width: 90%;
+            width: 100%;
             height: 75%;
             background-color: #223c5e;
             border-radius: 5px;
@@ -94,13 +94,24 @@
             }
         }
     }
-
     .detail-is-open {
         background-color: #bdd2ec;
         width: 50%;
         margin-left: 20%;
         border-radius: 5px;
     }
+}
+
+.order-completed {
+    display: flex;
+    align-items: center;
+    margin-right: 10%;
+    font-size: smaller;
+    .order-completed-text {
+        margin-left: 5px;
+    }
+    margin-bottom: 10px;
+    color: rgb(9, 211, 9);
 }
 
 .order-dialog {

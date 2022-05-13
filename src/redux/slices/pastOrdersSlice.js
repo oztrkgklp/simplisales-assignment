@@ -21,7 +21,7 @@ const { actions, reducer } = createSlice({
 
 //#region Thunks
 const getPastOrders = createAsyncThunk("getPastOrders", async (params, ThunkAPI) => {
-    var response = await graphQLService.getPastOrders(params.index, params.limit).then((result) => ThunkAPI.dispatch(actions.setPastOrders(result.data)));
+    var response = await graphQLService.getPastOrders(params.index, params.limit).then((result) =>  ThunkAPI.dispatch(actions.setPastOrders(result)));
     return response;
 });
 //#endregion Thunks

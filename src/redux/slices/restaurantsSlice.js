@@ -21,7 +21,7 @@ const { actions, reducer } = createSlice({
 
 //#region Thunks
 const getRestaurants = createAsyncThunk("getRestaurants", async (params, ThunkAPI) => {
-    var response = await graphQLService.getRestaurants(params.delivery, params.index, params.limit).then((result) => ThunkAPI.dispatch(actions.setRestaurants(result.data)));
+    var response = await graphQLService.getRestaurants(params.delivery, params.index, params.limit).then((result) => ThunkAPI.dispatch(actions.setRestaurants(result)));
     return response;
 });
 //#endregion Thunks

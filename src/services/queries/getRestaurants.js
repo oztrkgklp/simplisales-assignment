@@ -1,4 +1,5 @@
 export default (delivery, index, limit) => `
+query request {
   restaurants(delivery: ${delivery}, index: ${index}, limit: ${limit}) {
       avgScore
       deal {

@@ -43,7 +43,7 @@ const OrderDetail = ({ open, setOpen }) => {
                 <div className="restaurant-detail-dialog">
                     <DialogTitle>
                         <div className="is-new">
-                            <FiberNewIcon className="icon" />
+                            {restaurant.isNew && <FiberNewIcon className="icon" />}
                             {restaurant.name}
 
                             <div onClick={handleClose}>
@@ -73,7 +73,7 @@ const OrderDetail = ({ open, setOpen }) => {
                                             <div className="keys">Location</div>
                                         </Grid>
                                         <Grid xs={6} md={6} lg={6} xl={6}>
-                                            <div className="values">{restaurant.restaurantAddressSlugCityName}</div>
+                                            <div className="values">{restaurant.restaurantAddressSlugCityName.toUpperCase()}</div>
                                         </Grid>
                                     </Grid>
                                 </div>

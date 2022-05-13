@@ -14,8 +14,8 @@ const RestaurantCard = ({ restaurant, onClick }) => {
         <div>
             <Card sx={{ maxWidth: 345, display: "relative", backgroundColor: "rgb(163, 221, 241)", cursor: "pointer" }}>
                 <div className="restaurant-card" onClick={onClick}>
-                    <CardHeader avatar={isNew ? <FiberNewIcon className="new-icon" /> : <div />} title={name} subheader={restaurantAddressSlugCityName} className="card-header" />
-                    <CardMedia component="img" height="100" image={picture.url} />
+                    <CardHeader avatar={isNew ? <FiberNewIcon className="new-icon" /> : <div />} title={name} subheader={restaurantAddressSlugCityName.toUpperCase()} className="card-header" />
+                    <CardMedia component="img" height="100" image={picture.url.replace("[WIDTH]", 120).replace("[HEIGHT]", 100)} alt={picture.alt} />
                     <CardContent className={open ? "open" : "closed"}>
                         {open ? (
                             <div className="is-open">
