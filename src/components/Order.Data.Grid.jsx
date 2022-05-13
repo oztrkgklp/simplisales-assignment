@@ -192,7 +192,7 @@ const OrderDataGrid = ({ setOpen }) => {
     ];
 
     const [index, setIndex] = useState(0);
-    const [limit, setLimit] = useState(9);
+    const [limit, setLimit] = useState(5);
 
     const generateAddress = (order) => {
         const { addressLine1, addressLine2, city, country, flatNumber } = order.address;

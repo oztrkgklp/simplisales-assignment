@@ -18,6 +18,7 @@ export default function ResponsiveDialog({ open, setOpen }) {
     const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
 
     const order = useSelector((state) => state.order.value);
+    const orders = useSelector((state) => state.pastOrders.value);
 
     const handleClose = () => {
         setOpen(false);
@@ -43,10 +44,81 @@ export default function ResponsiveDialog({ open, setOpen }) {
                         </div>
                     </DialogTitle>
                     <DialogContent className="dialog-info">
-                        
-                        <DialogContentText color={"#d3d2df"}>
-                           
-                        </DialogContentText>
+                        <Card className="dialog-card">
+                            <Grid container>
+                                <Grid xs={12} md={12} lg={6} xl={6}>
+                                    <Grid container>
+                                        <Grid xs={12} md={12} lg={12} xl={12} className="subtitle">Product Info</Grid>
+                                        <Divider />
+                                        <Grid xs={6} md={6} lg={6} xl={6} className="keys">
+                                            asdasd
+                                        </Grid>
+                                        <Grid xs={6} md={6} lg={6} xl={6} className="values">
+                                            {" "}
+                                            asdads
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                                <Divider />
+                                <Grid xs={12} md={12} lg={6} xl={6}>
+                                    <Grid container>
+                                    <Grid xs={12} md={12} lg={12} xl={12} className="subtitle">Restaurant Info</Grid>
+                                        <Grid xs={6} md={6} lg={6} xl={6} className="keys">
+                                            {" "}
+                                            asdasd{" "}
+                                        </Grid>
+                                        <Grid xs={6} md={6} lg={6} xl={6} className="values">
+                                            {" "}
+                                            asdasd
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                                <Divider />
+                                <Grid xs={12} md={12} lg={6} xl={6}>
+                                    <Grid container>
+                                    <Grid xs={12} md={12} lg={12} xl={12} className="subtitle">Customer Info</Grid>
+                                        <Grid xs={6} md={6} lg={6} xl={6} className="keys">
+                                            {" "}
+                                            asdasd{" "}
+                                        </Grid>
+                                        <Grid xs={6} md={6} lg={6} xl={6} className="values">
+                                            {" "}
+                                            asdasd
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                                <Divider />
+                                <Grid xs={12} md={12} lg={6} xl={6}>
+                                    <Grid container>
+                                    <Grid xs={12} md={12} lg={12} xl={12} className="subtitle">Payment Info</Grid>
+                                        <Grid xs={6} md={6} lg={6} xl={6} className="keys">
+                                            {" "}
+                                            asdasd{" "}
+                                        </Grid>
+                                        <Grid xs={6} md={6} lg={6} xl={6} className="values">
+                                            {" "}
+                                            asdasd
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                                <Divider />
+                                <Grid lg={1} xl={1}></Grid>
+                                <Grid xs={12} md={12} lg={10} xl={10}>
+                                    <Grid container>
+                                    <Grid xs={12} md={12} lg={12} xl={12} className="subtitle">Other</Grid>
+                                        <Grid xs={6} md={6} lg={6} xl={6} className="keys">
+                                            {" "}
+                                            asdasd{" "}
+                                        </Grid>
+                                        <Grid xs={6} md={6} lg={6} xl={6} className="values">
+                                            {" "}
+                                            asdasd
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                                <Grid lg={1} xl={1}></Grid>
+                            </Grid>
+                        </Card>
                     </DialogContent>
                 </div>
             </Dialog>

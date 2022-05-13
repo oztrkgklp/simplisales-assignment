@@ -70,30 +70,27 @@
     }
     .dialog-info {
         height: 100% !important;
-        img {
-            border-radius: 6px;
-            max-height: 250px;
-            width: 90%;
-        }
-
-        .info {
+        .dialog-card {
             margin-top: 10px;
+            text-align: center;
             width: 90%;
-            background-color: #365885;
+            height: 75%;
+            background-color: #223c5e;
             border-radius: 5px;
-            .entry {
+            padding-top: 10px;
+            .subtitle {
                 margin-top: 10px;
-                text-align: center;
-                margin-inline: 10% !important;
-
-                .keys {
-                    color: rgba($color: rgb(133, 214, 197), $alpha: 1);
-                    font-size: larger;
-                }
-                .values {
-                    font-size: large;
-                    color: rgba($color: rgb(176, 240, 168), $alpha: 1);
-                }
+                margin-bottom: 10px;
+                color: rgba($color: rgb(174, 224, 214), $alpha: 1);
+                font-size: larger;
+            }
+            .keys {
+                color: rgba($color: rgb(100, 184, 166), $alpha: 1);
+                font-size: larger;
+            }
+            .values {
+                font-size: large;
+                color: rgba($color: rgb(176, 240, 168), $alpha: 1);
             }
         }
     }
