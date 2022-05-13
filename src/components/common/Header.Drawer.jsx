@@ -43,7 +43,7 @@ const Drawer = () => {
                         <ListItemIcon>
                             <AccountCircleIcon className="drawer-icons" />
                         </ListItemIcon>
-                        <ListItemText primary="Profile" />
+                        <ListItemText primary="My Profile" />
                     </ListItemButton>
                 </ListItem>
             </List>

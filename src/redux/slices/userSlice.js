@@ -5,7 +5,28 @@ import { graphQLService } from "/services";
 const { actions, reducer } = createSlice({
     name: "User",
     initialState: {
-        value: {},
+        value: {
+            firstName: "",
+            lastName: "",
+            email: "",
+            phone: "",
+            emailVerified: false,
+            smsVerified: true,
+            addresses: [
+                {
+                    addressLine1: "",
+                    addressLine2: "",
+                    city: {
+                        name: "",
+                    },
+                    country: {
+                        name: "",
+                    },
+                    fullName: "",
+                    flatNumber: "",
+                },
+            ],
+        },
     },
     reducers: {
         setUser: (state, action) => {
@@ -21,7 +42,7 @@ const { actions, reducer } = createSlice({
 
 //#region Thunks
 const getUser = createAsyncThunk("getUser", async (params, ThunkAPI) => {
-    var response = await graphQLService.getUserInfo().then((result) => ThunkAPI.dispatch(actions.setUser(result.data)));
+    var response = await graphQLService.getUserInfo().then((result) => ThunkAPI.dispatch(actions.setUser(result)));
     return response;
 });
 //#endregion Thunks

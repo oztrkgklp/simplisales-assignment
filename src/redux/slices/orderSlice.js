@@ -36,6 +36,12 @@ const { actions, reducer } = createSlice({
                 },
             },
             total: 0.0,
+            tip: {
+                amount: 0
+            },
+            refund: {
+                amount: 0
+            },
             orderDate: "",
             earnedPoints: 0,
             deliveryFee: 0.0,
